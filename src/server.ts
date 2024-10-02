@@ -30,7 +30,7 @@ inquirer.prompt([
             if (err) {
                 console.log(err);
             } else {
-                console.log(`${result.rowCount} rows returned`);
+                console.log(`The department table has ${result.rowCount} rows`);
             }
         });
     }

@@ -23,3 +23,21 @@ VALUES
 ('General Counsel', 250000, 5),
 ('Lawyer', 120000, 5),
 ('Paralegal', 60000, 5);
+
+INSERT INTO employee(first_name, last_name, role_id, manager_id)
+VALUES
+('Alice', 'Smith', 1, NULL),
+('Bob', 'Johnson', 2, 1),
+('Charlie', 'Brown', 3, 2),
+('David', 'White', 4, 3),
+('Eve', 'Black', 5, 4),
+('Frank', 'Green', 6, 5),
+('Grace', 'Blue', 7, 6),
+('Hannah', 'Red', 8, 7),
+('Isaac', 'Orange', 9, 8),
+('Jenny', 'Yellow', 10, 9),
+('Kevin', 'Purple', 11, 10),
+('Linda', 'Pink', 12, 11),
+('Michael', 'Grey', 13, 12),
+('Nancy', 'Brown', 14, 13),
+('Oscar', 'White', 15, 14);

@@ -22,5 +22,5 @@ const connectToDB = async () => {
         process.exit(1);
     }
 };
-
+// EXPORT POOL
 export { pool, connectToDB };

@@ -12,15 +12,8 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// POOL queries
+// queries
 //view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role
-pool.query('SELECT * FROM department', (err: Error, result: QueryResult) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(`${result.rowCount} rows returned`);
-    }
-  });
 
 // inquirer queries
 inquirer.prompt([
@@ -32,6 +25,15 @@ inquirer.prompt([
     },
 ]).then((answers) => {
     console.log(answers);
+    if (answers.name === 'View all departments') {
+        pool.query('SELECT * FROM department', (err: Error, result: QueryResult) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(`${result.rowCount} rows returned`);
+            }
+        });
+    }
 }).catch((error) => {
     console.error(error);
 });

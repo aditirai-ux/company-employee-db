@@ -14,6 +14,13 @@ app.use(express.json());
 
 // POOL queries
 //view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role
+pool.query('SELECT * FROM department', (err: Error, result: QueryResult) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(`${result.rowCount} rows returned`);
+    }
+  });
 
 // inquirer queries
 inquirer.prompt([

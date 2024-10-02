@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import pg from 'pg';
 
-// DATA
+// CREATE connection pool
 const { Pool } = pg;
 
 const pool = new Pool({
@@ -13,3 +13,14 @@ const pool = new Pool({
     database: process.env.DB_NAME,
     port: 5432,
 });
+const connectToDB = async () => {
+    try {
+        await pool.connect();
+        console.log('Connected to database');
+    } catch (error) {
+        console.error('Error connecting to database', error);
+        process.exit(1);
+    }
+};
+
+export { pool, connectToDB };

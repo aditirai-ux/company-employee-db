@@ -1,5 +1,6 @@
 import express from 'express';
 import { QueryResult } from 'pg';
+import inquirer from 'inquirer';
 import { pool, connectToDB } from './connection.js';
 
 await connectToDB();
@@ -12,8 +13,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // POOL queries
+//view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role
 
 // inquirer queries
+inquirer.prompt([
+    {
+        type: 'list',
+        name: 'name',
+        message: 'What do you want to do?',
+        choices: ['View all departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an employee', 'Update an employee role'],
+    },
+]).then((answers) => {
+    console.log(answers);
+}).catch((error) => {
+    console.error(error);
+});
+
+// inquirer queries
+
 
 // LISTEN
 app.use((_req, res) => {
